@@ -7,10 +7,17 @@ void execute_command(char *command)
 {
 	pid_t pid;
 	char *args[2];
-	int status;
+	int status, i;
+	char *token = strtok(command, " ");
 
-	args[0] = command;
-	args[1] = NULL;
+	i = 0;
+	while (token != NULL)
+	{
+		args[i++] = token;
+		token = strtok(NULL, " ");
+	}
+	args[i] = NULL;
+
 	pid = fork();
 	if (pid < 0)
 	{

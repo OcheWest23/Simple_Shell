@@ -5,20 +5,15 @@
  */
 int main(void)
 {
-	char input[MAX_INPUT_LENGTH];
-	char *prompt = "#cisfun$ ";
+	char *input;
 
 	while (1)
 	{
-		printf("%s", prompt);
-		if (fgets(input, sizeof(input), stdin) == NULL)
-		{
-			printf("\n");
+		input = get_input();
+		if (input == NULL || input == 0)
 			break;
-		}
-		input[strcspn(input, "\n")] = '\0';
-		if (strlen(input) > 0)
-			execute_command(input);
+		execute_command(input);
+		free(input);
 	}
 	return (0);
 }
