@@ -14,6 +14,7 @@ int odd(int n);
 void execute_command(char *command);
 int main(void);
 char *get_input(void);
+void exit_shell(void);
 
 
 #endif

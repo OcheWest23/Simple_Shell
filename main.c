@@ -12,6 +12,8 @@ int main(void)
 		input = get_input();
 		if (input == NULL || input == 0)
 			break;
+		if (strcmp(input, "exit") == 0)
+			exit_shell();
 		execute_command(input);
 		free(input);
 	}

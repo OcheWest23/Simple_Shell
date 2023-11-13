@@ -6,7 +6,7 @@
 void execute_command(char *command)
 {
 	pid_t pid;
-	char *args[2];
+	char *args[MAX_INPUT_LENGTH];
 	int status, i;
 	char *token = strtok(command, " ");
 
@@ -26,7 +26,7 @@ void execute_command(char *command)
 	}
 	if (pid == 0)
 	{
-		if (execve(command, args, NULL) == -1)
+		if (execve(args[0], args, NULL) == -1)
 		{
 			perror("./shell");
 			exit(EXIT_FAILURE);
@@ -34,4 +34,5 @@ void execute_command(char *command)
 	}
 	else
 		wait(&status);
+
 }
