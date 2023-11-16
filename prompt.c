@@ -12,3 +12,4 @@ void prompt(void)
 		prints("$ ");
 	free(buffer);
 }
+

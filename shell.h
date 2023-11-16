@@ -37,7 +37,7 @@ void _puts(char *str);
 
 /* Functions for Processes */
 
-int execute_cmd(char **av, char **args, char **env, int jay, int maxx);
+int execute_cmd(char **av, char **args, char **environ, int maxx, int maxxiz);
 char **search(char **environ);
 char **_maxx(char *maxxpath);
 
