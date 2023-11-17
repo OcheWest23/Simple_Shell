@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "shell.h"
 
 /**
@@ -35,31 +34,6 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 			free(args);
 		}
 		free(line);
-=======
-#include"shell.h"
-/**
- * main - runs the shell program
- * Return: 0
- */
-int main(void)
-{
-	char *input;
-
-	while (1)
-	{
-		input = get_input();
-		if (input == NULL || strlen(input) == 0)
-			break;
-
-		if (strcmp(input, "exit") == 0)
-			exit_shell();
-
-		if (strcmp(input, "env") == 0)
-			print_env();
-
-		execute_command(input);
-		free(input);
->>>>>>> 3a99a0eaa0203c586d9814d1e35880e73bf65730
 	}
 	return (0);
 }
