@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -46,5 +47,26 @@ int *_error(char *argv, int count, char *args);
 
 /*memory */
 void *_calloc(unsigned int maxxis, unsigned int size);
+=======
+#ifndef SHELL_H
+#define SHELL_H
 
-#endif /* MAIN_H */
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/wait.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<string.h>
+#include<unistd.h>
+
+#define MAX_INPUT_LENGTH 100
+extern char **environ;
+
+void execute_command(char *command);
+char *get_input(void);
+int main(void);
+void exit_shell(void);
+void print_env(void);
+>>>>>>> 3a99a0eaa0203c586d9814d1e35880e73bf65730
+
+#endif
