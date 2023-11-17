@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * prompt - Displays prompt
+ * display - creates or displays a prompt
  * Return: void
  */
-void prompt(void)
+void display(void)
 {
 	char *buffer = getcwd(NULL, 0);
 
@@ -12,4 +12,3 @@ void prompt(void)
 		prints("$ ");
 	free(buffer);
 }
-

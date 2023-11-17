@@ -3,17 +3,17 @@
 void handle_exit(char **maxx, char *line);
 
 /**
- * split_str - Carries out spliting of the string
- * @line: The string to be tokenized
- * @env: Environment variables
+ * splitter_str - Helps to splits string
+ * @line: string to be tokenized
+ * @environ: environment variables
  *
- * Return: An array of tokens
+ * Return: array of tokens
  */
-char **split_str(char *line, char **env)
+char **splitter_str(char *line, char **environ)
 {
 	char *tokenized_sentence, *separator = " \t\r\n\a";
 	char **maxx;
-	int max_maxx = 64, tonga = 0;
+	int max_maxx = 64, maxxis = 0;
 
 	if (line == NULL)
 	{
@@ -29,13 +29,13 @@ char **split_str(char *line, char **env)
 	tokenized_sentence = strtok(line, separator);
 	while (tokenized_sentence != NULL)
 	{
-		maxx[tonga] = tokenized_sentence;
-		tonga++;
+		maxx[maxxis] = tokenized_sentence;
+		maxxis++;
 		tokenized_sentence = strtok(NULL, separator);
 	}
 
 	if (maxx[0] == NULL)
-		maxx[tonga] = "\n";
+		maxx[maxxis] = "\n";
 
 	if (_strcmp(maxx[0], "exit") == 0)
 	{
@@ -46,7 +46,7 @@ char **split_str(char *line, char **env)
 			handle_exit(maxx, line);
 	}
 	if ((_strcmp(maxx[0], "env") == 0) && maxx[1] == NULL)
-		printenv(env);
+		printenv(environ);
 
 	return (maxx);
 
@@ -54,10 +54,10 @@ char **split_str(char *line, char **env)
 
 
 /**
- * handle_exit - Controls and takes care of exit
- * @maxx:  maxx which is nlice
- * @line: line line in the mirrorie
- * Returns: nothing
+ * handle_exit - Function handles the exit
+ * @maxx:  maxx which is not bad
+ * @line: line line in the mirrori
+ * Returns: void
  *
  */
 
@@ -78,8 +78,8 @@ void handle_exit(char **maxx, char *line)
 }
 
 /**
- * _atoi - Changes character (char) to int
- * @a: Character to be converted
+ * _atoi - converts char to int
+ * @a: char to be converted
  * Return: int
  */
 

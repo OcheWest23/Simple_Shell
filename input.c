@@ -1,16 +1,16 @@
 #include "shell.h"
 
 /**
- * read_input - Saves anything passed to it as standard input
+ * save_input - saves whatever is passed to it as standard input
  *
- * Return: String holding the input
+ * Return: string containing the input
  */
-char *read_input(void)
+char *save_input(void)
 {
 	char *line = NULL;
 	ssize_t bytes_read;
 	size_t bufsize;
-	int x;
+	int i;
 
 	bufsize = 0;
 	bytes_read = getline(&line, &bufsize, stdin);
@@ -33,9 +33,9 @@ char *read_input(void)
 	}
 	else
 	{
-		for (x = 0; line[x] == ' ' && line[x + 1] == ' '; x++)
+		for (i = 0; line[i] == ' ' && line[i + 1] == ' '; i++)
 			;
-		if (!line[x] && line[x + 1] == '\n')
+		if (!line[i] && line[i + 1] == '\n')
 		{
 			free(line);
 			return (0);
